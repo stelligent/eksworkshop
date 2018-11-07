@@ -1,0 +1,26 @@
+---
+environments:
+  - name: acceptance
+    provider: eks
+  - name: production
+    provider: eks
+service:
+  acceptance:
+    disabled: true
+  production:
+    disabled: true
+  healthEndpoint: /
+  port: 80
+  pathPatterns:
+    - /*
+  #templates:
+  # mu-environment-acceptance-ConfigMap-aws-auth:   
+  #   data:
+  #     mapUsers: |
+  #       - userarn: arn:aws:iam::00000000000:user/casey.lee
+  #         username: casey-lee
+  #         groups:
+  #         - system:masters
+  ## example of replacing entire spec files via extentions
+  # extensions:
+  #   - url: custom-ingress
